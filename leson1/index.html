@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leson 1</title>
+</head>
+<body>
+    <script>
+        let age = 15;
+        let name = "Nika";
+        let isStudent = true;
+        let myString = "Життя — це те, що з тобою відбувається, поки ти будуєш плани. Джон Леннон;"
+        let myNumber = 20;
+        let result = myNumber + 10
+        let myNull = null;
+        console.log(age, name, isStudent, myString, myNumber, result, myNull);
+
+        const typeName = prompt("Введіть своє ім'я");
+        alert (`Привіт ${typeName}`);
+
+        let isBoss = confirm("Ви бос?");
+        if (isBoss === true) {
+            alert ("Дякую за підтвердження!")
+        } else {
+            alert ("Дію відмінено!")
+        }
+
+        alert ("Дія небезпечна. Підтвердіть дію за допомогою попередження!");
+
+        let isConfirm = confirm("Підтвердіть дію");
+        if (isConfirm === true) { 
+            alert ("Дякую за підтвердження!")
+        } else {
+            alert ("Дію відмінено!")
+        }
+    </script>
+</body>
+</html>
