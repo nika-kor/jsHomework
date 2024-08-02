@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leson 4</title>
+</head>
+<body>
+
+    <input placeholder="введіть діапазон" class="input-check-first" type="text">
+    <input class="input-check-second" type="text">
+    <input class="input-check-third" type="text">
+    <button class="btn-check">check</button>
+
+    <script>
+
+        // 1
+
+        const btnCheck = document.querySelector('.btn-check');
+        btnCheck.addEventListener('click', () => {
+            const input1 = document.querySelector('.input-check-first');
+            const input2 = document.querySelector('.input-check-second');
+            if (input1.value.length > 0 && input2.value.length > 0) {
+                alert('Обидва поля заповнені');
+            } else {
+                alert('Не всі поля заповнені');
+            }
+        })
+
+         // 2
+
+        const btnSum = document.querySelector('.btn-check');
+        btnSum.addEventListener('click', () => {
+            const input1 = document.querySelector('.input-check-first');
+            const input2 = document.querySelector('.input-check-second');
+            if (Number(input1.value) + Number(input2.value) > 10) {
+                alert('Сума більша за 10');
+            } else {
+                alert('Сума менша або дорівнює 10');
+            }
+        })
+
+        // 3
+
+        const btnText = document.querySelector('.btn-check');
+        btnText.addEventListener('click', () => {
+            const input1 = document.querySelector('.input-check-first');
+            if (input1.value.includes('JavaScript')) {
+                alert('Текст містить слово JavaScript');
+            } else {
+                alert('Текст не містить слово JavaScript');
+            }
+        })
+
+        // 4
+
+        const btnCheckNum = document.querySelector('.btn-check');
+        btnCheckNum.addEventListener('click', () => {
+            const input1 = document.querySelector('.input-check-first');
+            if (Number(input1.value) > 10 && Number(input1.value) < 20) {
+                alert('Число входить в діапазон від 10 до 20');
+            } else {
+                alert('Число не входить в діапазон від 10 до 20');
+            }
+        })
+
+        // 5
+
+        const checkData = document.querySelector('.btn-check');
+        checkData.addEventListener('click', () => {
+            const inputName = document.querySelector('.input-check-first');
+            const inputEmail = document.querySelector('.input-check-second');
+            const inputPassword = document.querySelector('.input-check-third');
+            if (inputName.value.length < 3 || !inputEmail.value.includes('@') || !inputEmail.value.includes('.') || inputPassword.value.length < 6) {
+                alert('Неправильно введені дані');
+            } else {
+                alert('Правильно введені дані');
+            }
+        })
+    </script>
+</body>
+</html>
