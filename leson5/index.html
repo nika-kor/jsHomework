@@ -6,7 +6,6 @@
     <title>leson 5</title>
 </head>
 <body>
-    <!-- // Створити розмітку з двома полями введення, що приймають числа та список (select) з варіантами вибору операцій: "+", "-", "*", "/". При натисканні на кнопку виводити результат обраної операції над цими числами. Користувач повинен бути попереджений про можливість ділення на нуль. -->
 
     <!-- 1 -->
 
@@ -17,6 +16,7 @@
     </ul>
 
     <!-- 2 -->
+
     <input placeholder="введіть день тижня" class="input-first" type="text">
     <button class="check">check day</button>
 
@@ -37,7 +37,18 @@
 
     <!-- 6 -->
 
-    <ul class="list">
+    <div>
+        <h3>Введіть два числа</h3>
+        <input class="number-first" placeholder="введіть 1 число" type="text">
+        <input class="number-second" placeholder="введіть 2 число" type="text">
+        <ul class="list">
+            <li><button class="plus">+</button></li>
+            <li><button class="minus">-</button></li>
+            <li><button class="multiplication">*</button></li>
+            <li><button class="division">/</button></li>
+        </ul>
+        <button class="submit">submit</button>
+    </div>
         
     </ul>
     <script>
@@ -131,6 +142,28 @@
         // 6
 
         // Створити розмітку з двома полями введення, що приймають числа та список (select) з варіантами вибору операцій: "+", "-", "*", "/". При натисканні на кнопку виводити результат обраної операції над цими числами. Користувач повинен бути попереджений про можливість ділення на нуль.
+
+        const sum = document.querySelector('.submit');
+        sum.addEventListener('click', () => {
+            const input1 = document.querySelector('.input-first');
+            const input2 = document.querySelector('.input-second');
+            const plus = document.querySelector('.plus');
+            if (plus.value === '+') {
+                alert(Number(input1.value) + Number(input2.value));
+            } else if (select.value === '-') {
+                alert(Number(input1.value) - Number(input2.value));
+            } else if (select.value === '*') {
+                alert(Number(input1.value) * Number(input2.value));
+            } else if (select.value === '/') {
+                if (Number(input2.value) === 0) {
+                    alert('На нуль ділити не можна');
+                } else {
+                    alert(Number(input1.value) / Number(input2.value));
+                }
+            } else {
+                alert('Такої операції немає');
+            }
+        })
     </script>
 </body>
 </html>
