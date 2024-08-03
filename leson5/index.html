@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leson 5</title>
+</head>
+<body>
+    <!-- // Створити розмітку з двома полями введення, що приймають числа та список (select) з варіантами вибору операцій: "+", "-", "*", "/". При натисканні на кнопку виводити результат обраної операції над цими числами. Користувач повинен бути попереджений про можливість ділення на нуль. -->
+
+    <!-- 1 -->
+
+    <ul class="select">
+        <li style="font-size: 30px;" class="select-coffee">кава</li>
+        <li style="font-size: 30px;" class="select-tea">чай</li>
+        <li style="font-size: 30px;" class="select-juice">сік</li>
+    </ul>
+
+    <!-- 2 -->
+    <input placeholder="введіть день тижня" class="input-first" type="text">
+    <button class="check">check day</button>
+
+    <!-- 3 -->
+
+    <input placeholder="введіть номер місяця" class="input-second" type="text">
+    <button class="check-month">check month</button>
+
+    <!-- 4 -->
+
+    <input placeholder="введіть номер місяця щоб перевірити кількість днів" class="input-third" type="text">
+    <button class="check-month-second">check month</button>
+
+    <!-- 5 -->
+
+    <input placeholder="введіть колір світлофору" class="input-fourth" type="text">
+    <button class="btn-check-color">check</button>
+
+    <!-- 6 -->
+
+    <ul class="list">
+        
+    </ul>
+    <script>
+
+        // 1
+
+        const select = document.querySelector('.select');
+        select.addEventListener('click', (event) => {
+            const target = event.target;
+            if (target.classList.contains('select-coffee')) {
+                alert('Кава');
+            } else if (target.classList.contains('select-tea')) {
+                alert('Чай');
+            } else if (target.classList.contains('select-juice')) {
+                alert('Сік');
+            }
+        })
+
+        // 2
+
+        const btnCheck = document.querySelector('.check');
+        btnCheck.addEventListener('click', () => {
+            const input = document.querySelector('.input-first');
+            if (input.value === 'понеділок') {
+                alert('Робочий день');
+            } else if (input.value === 'вівторок') {
+                alert('Робочий день');
+            } else if (input.value === 'середа') {
+                alert('Робочий день');
+            } else if (input.value === 'четвер') {
+                alert('Робочий день');
+            } else if (input.value === 'п\'ятниця') {
+                alert('Робочий день');
+            } else if (input.value === 'субота' || input.value === 'неділя') {
+                alert('Вихідний');
+            } else {
+                alert('Такого дня немає');
+            }
+        })
+
+        // 3
+
+        const btnCheckMonth = document.querySelector('.check-month');
+        btnCheckMonth.addEventListener('click', () => {
+            const input = document.querySelector('.input-second');
+            if (Number(input.value) === 1 || Number(input.value) === 2 || Number(input.value) === 12) {
+                alert('Зима');
+            } else if (Number(input.value) === 3 || Number(input.value) === 4 || Number(input.value) === 5) {
+                alert('Весна');
+            } else if (Number(input.value) === 6 || Number(input.value) === 7 || Number(input.value) === 8) {
+                alert('Літо');
+            } else if (Number(input.value) === 9 || Number(input.value) === 10 || Number(input.value) === 11) {
+                alert('Осінь');
+            } else {
+                alert('Такого місяця немає');
+            }
+        })
+
+        // 4
+
+        const btnCheckMonthSecond = document.querySelector('.check-month-second');
+        btnCheckMonthSecond.addEventListener('click', () => {
+            const input = document.querySelector('.input-third');
+            if (Number(input.value) === 1 || Number(input.value) === 3 || Number(input.value) === 5 || Number(input.value) === 7 || Number(input.value) === 8 || Number(input.value) === 10 || Number(input.value) === 12) {
+                alert('31');
+            } else if (Number(input.value) === 2) { 
+                alert('28');
+            } else if (Number(input.value) === 4 || Number(input.value) === 6 || Number(input.value) === 9 || Number(input.value) === 11) {
+                alert('30');
+            } else {
+                alert('Такого місяця немає');
+            }
+        })
+
+        // 5
+
+        const btnCheckColor = document.querySelector('.btn-check-color');
+        btnCheckColor.addEventListener('click', () => {
+            const input = document.querySelector('.input-fourth');
+            if (input.value === 'червоний') {
+                alert('стоп');
+            } else if (input.value === 'синій') {
+                alert('йти');
+            } else if (input.value === 'жовтий') {
+                alert('чекати');
+            } else{
+                alert('Такого кольору немає');
+            }
+        })
+
+        // 6
+
+        // Створити розмітку з двома полями введення, що приймають числа та список (select) з варіантами вибору операцій: "+", "-", "*", "/". При натисканні на кнопку виводити результат обраної операції над цими числами. Користувач повинен бути попереджений про можливість ділення на нуль.
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leson 6</title>
+</head>
+<body>
+    <script>
+
+        // 1
+
+        const arrFirst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let i = 0;
+        while (i < arrFirst.length) {
+            console.log(arrFirst[i]);
+            i++;
+        }
+
+        // 2
+
+        const arrSecond = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+        for (let i = 0; i < arrSecond.length; i++) {
+            if (arrSecond[i] % 2 !== 0) {
+                continue;
+            }
+            console.log(arrSecond[i]);
+        }
+
+        // 3 
+
+        let num = 7;
+        let arrThird = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let result = 0;
+        for (let i = 1; i < arrThird.length; i++) {
+            let result = num * i;
+            console.log(`${num} * ${i} = ${result}`);
+        }
+
+        // 4
+
+        // Створити масив з числами від 1 до 5. Вивести на екран кожен елемент масиву за допомогою циклу while.
+
+        // let arrFourth = [1, 2, 3, 4, 5];
+        // while (i < arrFourth.length) {
+        //     console.log(arrFourth[i]);
+        //     i++;
+        // }
+
+
+        // 5
+
+        const arrFourth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        for (let i = 0; i < arrFourth.length; i++) {
+            if (arrFourth[i] === 7) {
+                break;
+            }
+            console.log(arrFourth[i]);
+        }
+
+        // 6
+
+        const arrFifth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const n = prompt("Введіть число");
+        for (let i = 0; i < arrFifth.length; i++) {
+            if (arrFifth[i] > n) {
+                break;
+            }
+            console.log(arrFifth[i]);
+        }
+
+        // 7
+
+        // За допомогою циклу while вивести на екран всі числа від 1 до 20, крім чисел, кратних 3. Якщо зустрінете число, кратне 3, цикл повинен продовжити виконання за допомогою оператора continue.
+
+        // const arrFifth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+        // while (i < arrFifth.length) {
+        //     if (arrFifth[i] % 3 === 0) {
+        //         i++;
+        //         continue;
+        //     }
+        //     console.log(arrFifth[i]);
+        //     i++;
+        // }
+    </script>
+</body>
+</html>
