@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leson 8</title>
+</head>
+<body>
+    <script>
+
+        // 1
+
+        let arr = [1, 2, 3];
+        let result = arr.join('');
+        console.log(result);
+
+        let resul2 = 0;
+        for (let i = 0; i < arr.length; i++) {
+            resul2 = arr.join('');
+        }
+        console.log(resul2);
+
+        // 2 
+        
+        const cards = [
+            "карточка-1",
+            "карточка-2",
+            "карточка-3",
+            "карточка-4",
+            "карточка-5"
+        ];
+        const cardsToRemove = cards.splice(2, 1);
+        console.log(cards);
+
+        const cardsToInsert = cards.push("карточка-6");
+        console.log(cards);
+
+        const cardsToUpdate = cards.splice(2, 1, "каРт0Чка-4");
+        console.log(cards);
+
+    </script>
+</body>
+</html>
