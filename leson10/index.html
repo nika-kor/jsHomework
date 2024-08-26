@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>leson 10</title>
+    <style>
+        .wrap {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #acdfec;
+            box-shadow: 17px 17px 13px -7px rgba(0,0,0,0.39);
+            -webkit-box-shadow: 17px 17px 13px -7px rgba(0,0,0,0.39);
+            -moz-box-shadow: 17px 17px 13px -7px rgba(0,0,0,0.39);
+            width: 400px;      
+            border-radius: 30px;
+            margin-top: 60px;     
+        }
+        .show-text,
+        #guessResult,
+        .show-amount {
+            min-height: 20px;
+        }
+
+        .btn-first,
+        .btn-second,
+        .btn-third {
+            padding: 5px;
+            font-size: 15px;
+            color: #556082;
+            border-radius: 30px;
+            background: none;
+            border: 3px solid #556082;
+            cursor: pointer;
+        }
+
+        #guesField {
+            padding: 5px;
+            border-radius: 30px;
+            background-color: #cff2fa;
+            border: 3px solid #556082;
+        }
+
+        h1 {
+            font-family: Matemasie;
+            margin: 0;
+            padding: 6px;
+        }
+
+        p {
+            font-family: Roboto;
+        }
+
+        .desc {
+            font-size: 10px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+
+        <!-- 1 -->
+
+        <h1>Task 1</h1>
+        <p class="desc">Натисни на кнопку щоб побачити повідомлення</p>
+        <button class="btn-first">click</button>
+        <p class="show-text"></p>
+
+        <!-- 2 -->
+
+        <h1>Task 2</h1>
+        <p class="desc">Вгадайте число</p>
+        <p>Вгадайте число від 1 до 100</p>
+        <div>
+            <input type="text" id="guesField">
+            <button type="button" onclick="checkGuess()" class="btn-second">Перевірити</button>
+        </div>
+        <p id="guessResult"></p>
+
+        <!-- 3 -->
+
+        <h1>Task 3</h1>
+        <p class="desc">Натисни на кнопку</p>
+        <button class="btn-third">click</button>
+        <p class="show-amount"></p>
+
+    </div>
+
+
+    <script>
+
+        // 1 
+        
+        console.log("1. Напиши скрипт який при кліку на кнопку буде виводити на екран повідомлення “Hello World!”. Використовуй колбек в вигляді стрілки")
+
+        const btn = document.querySelector(".btn-first");
+        const div = document.querySelector(".show-text");
+        btn.addEventListener("click", () => {
+            div.textContent = "Hello World!";
+        })
+
+        // 2
+
+        console.log("2. Створи програму, яка генерує випадкове число від 1 до 100. Користувач повинен вгадати число, введенням його в текстове поле. При кліку на кнопку \"Перевірити\" програма повинна повідомити користувача, чи є їх відповідь правильною.2");
+
+        const guessField = document.getElementById("guesField");
+        const guessResult = document.getElementById("guessResult");
+        const checkGuess = ("click", () => {
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            const guess = parseInt(guessField.value);
+            if (guess === randomNumber) {
+                guessResult.textContent = "Вітаю, ви вгадали!";
+            } else {
+                guessResult.textContent = "Схоже, що відповідь неправильна";
+            }
+        })
+
+        // 3
+
+        console.log("3. Створи програму, яка відображає повідомлення про те, скільки разів користувач клікнув на сторінці.")
+
+        const countAmount = document.querySelector(".btn-third");
+        const showAmount = document.querySelector(".show-amount");
+        let count = 0;
+        countAmount.addEventListener("click", () => {
+            count++;
+            showAmount.textContent = `Кількість кліків: ${count}`;
+        })
+
+        // 4
+
+        console.log("4. Напиши функцію, яка приймає масив чисел і колбек-функцію. Функція повинна застосовувати колбек-функцію до кожного елементу масиву та повертати новий масив, що містить результати застосування колбек-функції до кожного елементу.")
+
+        const applyCallbsckToEachElement = (arr, callback) => {
+            const result = [];
+            for (let i = 0; i < arr.length; i++) {
+                result.push(callback(arr[i]));
+            }
+            return result;
+        }
+
+        const arr = [1,2,3,4,5];
+        const squareCallback = num => num * num;
+
+        const result = applyCallbsckToEachElement(arr, squareCallback);
+        console.log(result); // [1,4,9,16,25]
+
+        // 5
+
+        console.log("5. Розрахунок дисконтної ціни. Створіть функцію, яка розраховує дисконтну ціну на товар з урахуванням знижки. Функція повинна приймати вартість товару та відсоток знижки як аргументи. Використайте стрілкову функцію та колбек.")
+
+        const calculateDiscountedPrice = (price, discount, callback) => {
+            const discountedPrice = price * (1 - discount / 100);
+            callback(discountedPrice);
+
+        };
+
+        const showDiscountedPrice = (discountedPrice) => {
+            console.log(`Discounted price: ${discountedPrice}`);
+        };
+
+        calculateDiscountedPrice(100,10, showDiscountedPrice); // Discounted price: 90
+    </script>
+</body>
+</html>
