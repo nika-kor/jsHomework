@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leson 14</title>
+</head>
+<body>
+    <script>
+        // 1
+
+        console.log(`Отримати масив імен всіх користувачів (поле name).`)
+
+        const users = [
+            { name: "Mango", active: true },
+            { name: "Poly", active: false },
+            { name: "Ajax", active: true },
+            { name: "Kiwi", active: true },
+            { name: "Chelsy", active: false },
+        ];
+
+        const names = users.map(user => user.name);
+
+        console.log(names);
+
+        // 2
+
+        console.log(`Отримати масив об'єктів користувачів за кольором очей (поле eyeColor).`)
+
+        const usersEyeColor = [
+            { name: "Mango", active: true, eyeColor: "brown" },
+            { name: "Poly", active: false, eyeColor: "red" },
+            { name: "Ajax", active: true, eyeColor: "blue" },
+            { name: "Kiwi", active: true, eyeColor: "green" },
+            { name: "Chelsy", active: false, eyeColor: "green" },
+        ];
+
+        const activeUsers = usersEyeColor.filter(user => user.active);
+        const blueUsers = activeUsers.filter(user => user.eyeColor === 'blue');
+
+        console.log(blueUsers);
+
+        // 3
+
+        console.log(`Отримати масив імен користувачів за статтю (поле gender).`)
+
+        const usersGender = [
+            { name: "Mango", active: true, gender: "male" },
+            { name: "Poly", active: false, gender: "female" },
+            { name: "Ajax", active: true, gender: "male" },
+            { name: "Kiwi", active: true, gender: "female" },
+            { name: "Chelsy", active: false, gender: "female" },
+        ];
+
+        const maleUsers = usersGender.filter(user => user.gender === 'male');
+
+        console.log(maleUsers);
+
+        // 4
+
+        console.log(`Отримати масив тільки неактивних користувачів (поле isActive).`)
+
+        const usersIsActive = [
+            { name: "Mango", active: true },
+            { name: "Poly", active: false },
+            { name: "Ajax", active: true },
+            { name: "Kiwi", active: true },
+            { name: "Chelsy", active: false },
+        ];
+
+        const inactiveUsers = usersIsActive.filter(user => user.active === false);
+
+        console.log(inactiveUsers);
+
+        // 5
+
+        console.log(`Отримати користувача (не масив) по email (поле email, він унікальний).`)
+
+        const usersEmail = [
+            { name: "Mango", active: true, email: "nK5sQ@example.com" },
+            { name: "Poly", active: false, email: "nK5sQ@example.com" },
+            { name: "Ajax", active: true, email: "nK5sQ@example.com" },
+            { name: "Kiwi", active: true, email: "nK5sQ@example.com" },
+            { name: "Chelsy", active: false, email: "nK5sQ@example.com" },
+        ];
+
+        const userByEmail = usersEmail.find(user => user.email === 'nK5sQ@example.com');
+
+        console.log(userByEmail);
+
+        // 6
+
+        console.log(`Отримати масив користувачів, які потрапляють у вікову категорію від min до max років (поле age).`)
+
+        const usersAge = [
+            { name: "Mango", active: true, age: 20 },
+            { name: "Poly", active: false, age: 25 },
+            { name: "Ajax", active: true, age: 30 },
+            { name: "Kiwi", active: true, age: 35 },
+            { name: "Chelsy", active: false, age: 40 },
+        ];
+
+        const usersBetweenAge = usersAge.filter(user => user.age >= 20 && user.age <= 30);
+
+        console.log(usersBetweenAge);
+    </script>
+</body>
+</html>
