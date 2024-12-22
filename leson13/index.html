@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leson 13</title>
+</head>
+<body>
+    <script>
+        console.log(`Напиши сценарій керування особистим кабінетом інтернет-банку. Є об'єкт account в якому необхідно реалізувати методи для роботи з балансом та історією транзакцій.`)
+
+        const account = {
+            owner: "Mango",
+            balance: 0,
+            transactions: [],
+            deposit(value) {
+                this.balance += value;
+                this.transactions.push({ type: "deposit", amount: value });
+            },
+            withdraw(value) {
+                if (value > this.balance) {
+                    console.log("Недостатньо коштів на рахунку!");
+                } else {    
+                    this.balance -= value;
+                    this.transactions.push({ type: "withdrawal", amount: value });
+                }
+            },
+            getBalance() {
+                return this.balance;
+            },
+            getTransactionDetails() {
+                return this.transactions;
+            },
+            getTransactionTotal() {
+                let total = 0;
+                for (const transaction of this.transactions) {
+                    total += transaction.amount;
+                }
+                return total;
+            },
+        };
+
+        account.deposit(1000);
+        account.withdraw(500);
+        account.deposit(2000);
+        console.log(account.getBalance());
+        console.log(account.getTransactionDetails());
+        console.log(account.getTransactionTotal());
+        
+    </script>
+</body>
+</html>
