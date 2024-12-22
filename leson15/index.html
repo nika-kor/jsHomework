@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leson 15</title>
+</head>
+<body>
+    <script>
+        // 1
+
+        console.log(`Отримати загальну суму балансу (поле balance) всіх користувачів.`)
+
+        const users = [
+            {
+                name: "Mango",
+                balance: 400
+            },
+            {
+                name: "Poly",
+                balance: 500
+            },
+            {
+                name: "Ajax",
+                balance: 300
+            },
+        ];
+
+        const totalBalance = users.reduce((total, user) => total + user.balance, 0);
+
+        console.log(totalBalance);
+
+        // 2
+
+        console.log(`Масив імен всіх користувачів у яких є друг із зазначеним ім'ям.`)
+
+        const usersName = [
+            {
+                name: "Mango",
+                friends: ["Poly", "Ajax"]
+            },
+            {
+                name: "Poly",
+                friends: ["Mango", "Ajax"]
+            },
+            {
+                name: "Ajax",
+                friends: ["Poly", "Mango"]
+            },
+        ];
+
+        const names = usersName.reduce((names, user) => {
+            if (user.friends.includes("Mango")) {
+                names.push(user.name);
+            }
+            return names;
+        }, []);
+
+        console.log(names);
+
+        // 3
+
+        console.log(`Масив імен (поле name) людей, відсортованих в залежності від кількості їх друзів (поле friends)`)
+
+        const usersFriends = [
+            {
+                name: "Mango",
+                friends: ["Poly"]
+            },
+            {
+                name: "Poly",
+                friends: ["Mango", "Ajax", "Chelsy"]
+            },
+            {
+                name: "Ajax",
+                friends: ["Poly", "Mango"]
+            },
+        ];
+
+        const sortedNames = usersFriends.sort((userA, userB) => userA.friends.length - userB.friends.length).map(user => user.name);
+
+        console.log(sortedNames);
+
+        // 4
+
+        console.log(`Отримати масив всіх умінь всіх користувачів (поле skills), при цьому не має бути повторюваних умінь і вони повинні бути відсортовані в алфавітному порядку.`)
+
+        const usersSkills = [
+            {
+                name: "Mango",
+                skills: ["html", "css", "javascript", "php"]
+            },
+            {
+                name: "Poly",
+                skills: ["html", "css", "javascript", "mysql"]
+            },
+            {
+                name: "Ajax",
+                skills: ["php", "css", "javascript"]
+            },
+        ];
+
+        const allSkills = usersSkills.reduce((skills, user) => {
+            user.skills.forEach(skill => {
+                if (!skills.includes(skill)) {
+                    skills.push(skill);
+                }
+            });
+            return skills;
+        }, []);
+
+        const sortedSkills = allSkills.sort();
+
+        console.log(sortedSkills);
+    </script>
+</body>
+</html>
