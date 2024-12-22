@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leson 17</title>
+</head>
+<body>
+
+    <!-- Створити розмітку з кнопкою та текстовим полем. За допомогою JavaScript отримати доступ до кнопки та текстового поля за їх ідентифікаторами та змінити текст на кнопці на значення текстового поля. -->
+
+    <h2>first</h2>
+
+    <input type="text" id="input">
+    <button id="btn">Click</button>
+
+    <!-- Створити розмітку з заголовком та зображенням. За допомогою JavaScript отримати доступ до зображення та змінити значення атрибута "src" на шлях до іншого зображення. -->
+
+    <h2>second</h2>
+
+    <h2>image</h2>
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="image" width="300" class="img-first">
+
+
+    <!-- Створити розмітку з посиланням та зображенням. За допомогою JavaScript отримати доступ до посилання та змінити значення атрибута "href" на нову URL-адресу. Також отримати доступ до зображення та додати новий атрибут "alt" з описом зображення. -->
+
+    <h2>third</h2>
+
+    <a href="https://www.instagram.com/" target="_blank">something</a>
+    <img src="https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg" alt="somwthing first" width="300" class="img-second">
+
+    <!-- Створити розмітку зі списком елементів. За допомогою JavaScript отримати доступ до першого елемента списку та змінити його вміст на новий текст. -->
+
+    <h2>fourth</h2>
+
+    <ul>
+        <li>first</li>
+        <li>second</li>
+        <li>third</li>
+    </ul>
+
+    <script>
+        // 1
+
+        console.log(`Створити розмітку з кнопкою та текстовим полем. За допомогою JavaScript отримати доступ до кнопки та текстового поля за їх ідентифікаторами та змінити текст на кнопці на значення текстового поля.`)
+
+        const input = document.getElementById('input');
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', () => {
+            btn.textContent = input.value;
+        })
+
+        // 2
+
+        console.log(`Створити розмітку з заголовком та зображенням. За допомогою JavaScript отримати доступ до зображення та змінити значення атрибута "src" на шлях до іншого зображення.`)
+
+        const img = document.querySelector('.img-first');
+        img.setAttribute('src', 'https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg');
+
+        // 3
+
+        console.log(`Створити розмітку з посиланням та зображенням. За допомогою JavaScript отримати доступ до посилання та змінити значення атрибута "href" на нову URL-адресу. Також отримати доступ до зображення та додати новий атрибут "alt" з описом зображення.`)
+
+        const link = document.querySelector('a');
+        const img2 = document.querySelector('.img-second');
+        link.setAttribute('href', 'https://x.com/account/access');
+        img2.setAttribute('alt', 'something second');
+
+        // 4
+
+        console.log(`Створити розмітку зі списком елементів. За допомогою JavaScript отримати доступ до першого елемента списку та змінити його вміст на новий текст.`)
+
+        const list = document.querySelector('ul');
+        const firstLi = list.querySelector('li');
+        firstLi.textContent = 'new text';   
+    </script>
+</body>
+</html>
