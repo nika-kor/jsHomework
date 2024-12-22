@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leson 11</title>
+</head>
+<body>
+    <script>
+        // 1
+        console.log("1. Створіть об'єкт \"bankAccount\" з властивостями \"ownerName\", \"accountNumber\", \"balance\". Додайте до об'єкту метод \"deposit\", який дозволяє додавати гроші на рахунок, та метод \"withdraw\", який дозволяє знімати гроші з рахунку. Методи повинні зпрацьовувати при натисканні на кнопки “поповнити рахунок” та отримати ‘готівку’ відповідно. Після проведення операції виводити повідомлення про залишок на рахунку.");
+
+        let bankAccount = {
+            ownerName: "Viktor",
+            accountNumber: 123456789,
+            balance: 0,
+            deposit: function (sum) {
+                this.balance += sum;
+            },
+            withdraw: function (sum) {
+                this.balance -= sum;
+            }
+        };
+
+        bankAccount.deposit(1000);
+        bankAccount.withdraw(500);
+        bankAccount.deposit(500);
+        console.log(bankAccount.balance);
+
+        // 2
+
+        console.log('2. Створіть об\'єкт "weather" з властивостями "temperature", "humidity", "windSpeed". Додайте до об\'єкту метод, який повертає "true", якщо температура нижче 0 градусів Цельсія, та "false", якщо температура вище або рівна 0 градусів Цельсія. Температуру потрібно отримати з інпуту на сторінці. Якщо метод повернув "true" вивести повідомлення “температура нижче 0 градусів Цельсія” і навпаки');
+
+        let weather = {
+            temperature: 20,
+            humidity: 30,
+            windSpeed: 10,
+            checkTemperature: function () {
+                if (this.temperature > 0 && this.temperature === 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        }
+
+        console.log(weather.checkTemperature());
+
+        // 3
+
+        console.log('Створіть об’єкт "user", який буде мати властивості "name", "email", "password". Додайте метод "login", який буде перевіряти правильність введеного email та password. Використайте інпути для запису значень властивостей в об’єкт');
+
+        let user = {
+            name: "Viktor",
+            email: "nK5sQ@example.com",
+            password: "12345",
+            login: function () {
+                if (this.email === "nK5sQ@example.com" && this.password === "12345") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        console.log(user.login());
+
+        // 4 
+
+        console.log(`4 Створіть об'єкт "movie" з властивостями "title", "director", "year", "rating". Додайте до об'єкту метод, який повертає "true", якщо рейтинг фільму вище 8, та "false", якщо рейтинг фільму 8 або нижче. Вивести значення властивостей на сторінку. Якщо метод повернув "true" то змінити колір тексту поля title на зелений.`);
+
+        let movie = {
+            title: "The Shawshank Redemption",
+            director: "Frank Darabont",
+            year: 1994,
+            rating: 9.3,
+            checkRating: function () {
+                if (this.rating > 8) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        document.write(`<p>${movie.title}</p>`);
+        document.write(`<p>${movie.director}</p>`);
+        document.write(`<p>${movie.year}</p>`);
+        document.write(`<p>${movie.rating}</p>`);
+
+        if (movie.checkRating()) {
+            document.write(`<p style="color: green;">${movie.title}</p>`);
+        }
+        console.log(movie.checkRating());
+    </script>
+</body>
+</html>
