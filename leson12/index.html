@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leson 12</title>
+</head>
+<body>
+    <script>
+        //1
+
+        console.log(`Напиши скрипт, який, для об'єкта user, послідовно:
+            додає поле mood зі значенням 'happy'
+            замінює значення hobby на 'skydiving'
+            замінює значення premium на false
+            виводить вміст об'єкта user в форматі ключ:значення використовуючи Object.keys() і for...of`
+        )
+
+        let user = {
+            name: "Mango",
+            age: 20,
+            hobby: "html",
+            premium: true,
+        };
+
+        user.mood = "happy";
+        user.hobby = "skydiving";
+        user.premium = false;
+
+        for (let key of Object.keys(user)) {
+            console.log(`${key}: ${user[key]}`);
+        }
+        console.log(user);
+
+        // 2
+
+        console.log(`Напиши функцію countProps(obj), яка рахує кількість властивостей в об'єкті. Функція повертає число — кількість властивостей.`)
+
+        function countProps(obj) {
+            let count = 0;
+            for (let key in obj) {
+                count += 1;
+            }
+            return count;
+        }
+
+        let count = countProps(user);
+        console.log(count);
+
+        // 3
+
+        console.log(`Напиши функцію findBestEmployee(employees), яка приймає об'єкт співробітників і повертає ім'я найпродуктивнішого (який виконав більше всіх задач). Співробітники і кількість виконаних завдань містяться як властивості об'єкта в форматі "ім'я":"кількість задач".`)
+
+        function findBestEmployee(employees) {
+            let bestEmployee = '';
+            let bestCount = 0;
+            for (let key in employees) {
+                if (employees[key] > bestCount) {
+                    bestCount = employees[key];
+                    bestEmployee = key;
+                }
+            }
+            return bestEmployee;
+        }
+
+        let employees = {
+            ann: 29,
+            david: 35,
+            helen: 1,
+            lorence: 99,
+        };
+
+        let bestEmployee = findBestEmployee(employees);
+        console.log(bestEmployee);
+
+        // 4
+
+        console.log(`Напиши функцію countTotalSalary(employees) приймаючу об'єкт зарплат. Функція рахує загальну суму зарплати працівників і повертає її. Кожне поле об'єкта, переданого в функцію, має вигляд "ім'я":"зарплата".`)
+
+        function countTotalSalary(employees) {
+            let totalSalary = 0;
+            for (let key in employees) {
+                totalSalary += employees[key];
+            }
+            return totalSalary;
+        }
+
+        let salaries = {
+            John: 100,
+            Ann: 160,
+            Pete: 130,
+        };
+
+        let totalSalary = countTotalSalary(salaries);
+        console.log(totalSalary);
+
+        // 5
+
+        console.log(`Напиши функцію getAllPropValues(arr, prop), яка отримує масив об'єктів і ім'я властивості. Повертає масив значень певної властивості prop з кожного об'єкта в масиві.`)
+
+        function getAllPropValues(arr, prop) {
+            let result = [];
+            for (let i = 0; i < arr.length; i += 1) {
+                if (arr[i].hasOwnProperty(prop)) {
+                    result.push(arr[i][prop]);
+                }
+            }
+            return result;
+        }
+
+        let users = [
+            { name: "Mango", age: 2 },
+            { name: "Poly", age: 3 },
+            { name: "Kiwi", age: 4 },
+            { name: "Ajax", age: 1 },
+        ];
+
+        let result = getAllPropValues(users, "name");
+        console.log(result);
+
+        // 6
+
+        console.log(`Напиши функцію calculateTotalPrice(allProdcuts, productName), яка отримує масив об'єктів та ім'я продукту (значення властивості name). Повертає загальну вартість продукту (ціна * кількість). Викличи функції для перевірки працездатності твоєї реалізації.`)
+
+        function calculateTotalPrice(allProdcuts, productName) {
+            let result = 0;
+            for (let i = 0; i < allProdcuts.length; i += 1) {
+                if (allProdcuts[i].name === productName) {
+                    result = allProdcuts[i].price * allProdcuts[i].quantity;
+                }
+            }
+            return result;
+        }
+
+        let products = [
+            { name: "Радар", price: 1300, quantity: 4 },
+            { name: "Сканер", price: 2700, quantity: 3 },
+            { name: "Дроїд", price: 400, quantity: 7 },
+            { name: "Смарт-телефон", price: 1500, quantity: 2 },
+            { name: "Планшет", price: 2000, quantity: 1 },
+            { name: "Сканер", price: 2700, quantity: 3 },
+        ];
+
+        let totalPrice = calculateTotalPrice(products, "Радар");
+        console.log(totalPrice);
+    </script>
+</body>
+</html>
